@@ -1,0 +1,14 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: "--set-exit-if-changed"
